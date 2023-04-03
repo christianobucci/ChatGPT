@@ -4,6 +4,7 @@ def api_chatgpt(prompt: str) -> str:
     """
     import requests
     import json
+    import API_Key
 
     # Parâmetros da request para a API do ChatGPT
 
@@ -16,9 +17,7 @@ def api_chatgpt(prompt: str) -> str:
     headers = {
         # 'Connection':'keepalive',
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
-    }
-
+        'Authorization': API_Key.
     #Payload
 
     data = {
