@@ -8,16 +8,17 @@ def api_chatgpt(prompt: str) -> str:
 
     # Parâmetros da request para a API do ChatGPT
 
-    #URL
-
     url = 'https://api.openai.com/v1/chat/completions'
+    apikey = API_Key.api_key()
 
     #Header
 
     headers = {
         # 'Connection':'keepalive',
         'Content-Type': 'application/json',
-        'Authorization': API_Key.
+        'Authorization': apikey
+    }
+
     #Payload
 
     data = {
@@ -40,8 +41,8 @@ def api_chatgpt(prompt: str) -> str:
         if 'choices' in response_dict:
             if 'message' in response_dict['choices'][0]:
                 # Retorna o texto da primeira escolha de resposta
-                return response_dict['choices'][0]['message']['content']
-                #print(response_dict['choices'][0]['message']['content'])
+                return response_dict['choices'][0]['message']['content'], response_dict['id']
+                print(response_dict['choices'][0]['message']['content'], response_dict['id'])
             else:
                 print('Faltando atributo [''choices''][0][''message''] dentro do response_dict[''choices''][0]')
         else:
